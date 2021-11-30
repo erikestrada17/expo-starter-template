@@ -26,28 +26,12 @@ export default function ({ navigation }) {
         <Section>
           <SectionContent>
             <Text fontWeight="bold" style={{ textAlign: "center" }}>
-              These UI components provided by Rapi UI
+              Home
             </Text>
             <Button
-              style={{ marginTop: 10 }}
-              text="Rapi UI Documentation"
-              status="info"
-              onPress={() => Linking.openURL("https://rapi-ui.kikiding.space/")}
-            />
-            <Button
-              text="Go to second screen"
+              text="Search"
               onPress={() => {
-                navigation.navigate("SecondScreen");
-              }}
-              style={{
-                marginTop: 10,
-              }}
-            />
-            <Button
-              status="danger"
-              text="Logout"
-              onPress={() => {
-                auth.signOut();
+                navigation.navigate("Search");
               }}
               style={{
                 marginTop: 10,
@@ -70,6 +54,14 @@ export default function ({ navigation }) {
           </SectionContent>
         </Section>
       </View>
+        <Button
+          status="danger"
+          text="Logout"
+          onPress={() => {
+            auth.signOut();
+          }}
+          style={{marginTop: 10}}
+            />
     </Layout>
   );
 }

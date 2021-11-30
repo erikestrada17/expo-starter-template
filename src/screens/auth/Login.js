@@ -51,14 +51,15 @@ export default function ({ navigation }) {
               flex: 1,
               justifyContent: "center",
               alignItems: "center",
-              backgroundColor: isDarkmode ? "#17171E" : themeColor.white100,
+              backgroundColor: isDarkmode ? "#17171E" : themeColor.white,
             }}
           >
             <Image
               resizeMode="contain"
               style={{
-                height: 220,
-                width: 220,
+                marginTop: 10,
+                height: 150,
+                width: 150,
               }}
               source={require("../../../assets/login.png")}
             />
@@ -71,17 +72,8 @@ export default function ({ navigation }) {
               backgroundColor: isDarkmode ? themeColor.dark : themeColor.white,
             }}
           >
-            <Text
-              fontWeight="bold"
-              style={{
-                alignSelf: "center",
-                padding: 30,
-              }}
-              size="h3"
-            >
-              Login
-            </Text>
-            <Text>Email</Text>
+            
+            <Text style={{ marginTop: 40 }}>Email</Text>
             <TextInput
               containerStyle={{ marginTop: 15 }}
               placeholder="Enter your email"
@@ -105,12 +97,12 @@ export default function ({ navigation }) {
               onChangeText={(text) => setPassword(text)}
             />
             <Button
-              text={loading ? "Loading" : "Continue"}
+              text={loading ? "Loading" : "Login"}
               onPress={() => {
                 login();
               }}
               style={{
-                marginTop: 20,
+                marginTop: 25,
               }}
               disabled={loading}
             />

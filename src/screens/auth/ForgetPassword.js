@@ -50,14 +50,15 @@ export default function ({ navigation }) {
               flex: 1,
               justifyContent: "center",
               alignItems: "center",
-              backgroundColor: isDarkmode ? "#17171E" : themeColor.white100,
+              backgroundColor: isDarkmode ? "#17171E" : themeColor.white,
             }}
           >
             <Image
-              resizeMode="contain"
+              resizeMode="stretch"
               style={{
-                height: 220,
-                width: 220,
+                marginTop: 40,
+                height: 160,
+                width: 160,
               }}
               source={require("../../../assets/forget.png")}
             />
@@ -70,17 +71,8 @@ export default function ({ navigation }) {
               backgroundColor: isDarkmode ? themeColor.dark : themeColor.white,
             }}
           >
-            <Text
-              size="h3"
-              fontWeight="bold"
-              style={{
-                alignSelf: "center",
-                padding: 30,
-              }}
-            >
-              Forget Password
-            </Text>
-            <Text>Email</Text>
+
+            <Text style={{ marginTop: 40 }}>Email</Text>
             <TextInput
               containerStyle={{ marginTop: 15 }}
               placeholder="Enter your email"
@@ -92,7 +84,7 @@ export default function ({ navigation }) {
               onChangeText={(text) => setEmail(text)}
             />
             <Button
-              text={loading ? "Loading" : "Send email"}
+              text={loading ? "Loading" : "Send"}
               onPress={() => {
                 forget();
               }}

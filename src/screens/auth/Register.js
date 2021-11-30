@@ -22,6 +22,7 @@ export default function ({ navigation }) {
   const { isDarkmode, setTheme } = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function register() {
@@ -51,14 +52,15 @@ export default function ({ navigation }) {
               flex: 1,
               justifyContent: "center",
               alignItems: "center",
-              backgroundColor: isDarkmode ? "#17171E" : themeColor.white100,
+              backgroundColor: isDarkmode ? "#17171E" : themeColor.white,
             }}
           >
             <Image
               resizeMode="contain"
               style={{
-                height: 220,
-                width: 220,
+                marginTop: 10,
+                height: 150,
+                width: 150,
               }}
               source={require("../../../assets/register.png")}
             />
@@ -71,20 +73,10 @@ export default function ({ navigation }) {
               backgroundColor: isDarkmode ? themeColor.dark : themeColor.white,
             }}
           >
-            <Text
-              fontWeight="bold"
-              size="h3"
-              style={{
-                alignSelf: "center",
-                padding: 30,
-              }}
-            >
-              Register
-            </Text>
-            <Text>Email</Text>
+            
             <TextInput
-              containerStyle={{ marginTop: 15 }}
-              placeholder="Enter your email"
+              containerStyle={{ marginTop: 25 }}
+              placeholder="Email"
               value={email}
               autoCapitalize="none"
               autoCompleteType="off"
@@ -93,10 +85,9 @@ export default function ({ navigation }) {
               onChangeText={(text) => setEmail(text)}
             />
 
-            <Text style={{ marginTop: 15 }}>Password</Text>
             <TextInput
-              containerStyle={{ marginTop: 15 }}
-              placeholder="Enter your password"
+              containerStyle={{ marginTop: 25 }}
+              placeholder="Password"
               value={password}
               autoCapitalize="none"
               autoCompleteType="off"
@@ -104,13 +95,25 @@ export default function ({ navigation }) {
               secureTextEntry={true}
               onChangeText={(text) => setPassword(text)}
             />
+
+            <TextInput
+              containerStyle={{ marginTop: 25 }}
+              placeholder="Confirm Password"
+              value={confirm}
+              autoCapitalize="none"
+              autoCompleteType="off"
+              autoCorrect={false}
+              secureTextEntry={true}
+              onChangeText={(text) => setConfirm(text)}
+            />
             <Button
-              text={loading ? "Loading" : "Create an account"}
+              text={loading ? "Loading" : "Register"}
               onPress={() => {
-                register();
+                if(password == confirm) register();
+                else alert("password confirmation does not match")
               }}
               style={{
-                marginTop: 20,
+                marginTop: 25,
               }}
               disabled={loading}
             />
