@@ -52,7 +52,7 @@ export default function ({ navigation }) {
               flex: 1,
               justifyContent: "center",
               alignItems: "center",
-              backgroundColor: isDarkmode ? "#17171E" : themeColor.white,
+              backgroundColor: isDarkmode ? themeColor.dark : themeColor.white,
             }}
           >
             <Image
